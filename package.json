@@ -1,0 +1,36 @@
+{
+	"name": "pawtrack",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"private": true,
+	"workspaces": [
+		"client",
+		"server",
+		"shared"
+	],
+	"directories": {
+		"doc": "docs"
+	},
+	"scripts": {
+		"dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+		"dev:server": "npm run dev --workspace=server",
+		"dev:client": "npm run dev --workspace=client",
+		"build": "npm run build --workspace=server && npm run build --workspace=client",
+		"test": "npm run test --workspace=server"
+	},
+	"devDependencies": {
+		"concurrently": "^8.2.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/KevinOBautista/pawtrack.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/KevinOBautista/pawtrack/issues"
+	},
+	"homepage": "https://github.com/KevinOBautista/pawtrack#readme"
+}
