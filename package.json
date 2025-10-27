@@ -32,5 +32,8 @@
 	"bugs": {
 		"url": "https://github.com/KevinOBautista/pawtrack/issues"
 	},
-	"homepage": "https://github.com/KevinOBautista/pawtrack#readme"
+	"homepage": "https://github.com/KevinOBautista/pawtrack#readme",
+	"dependencies": {
+		"sqlite3": "^5.1.7"
+	}
 }
