@@ -2,6 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 export default async function DashboardPage() {
   const supabase = await createClient();
@@ -24,17 +25,47 @@ export default async function DashboardPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {pets.map((pet) => (
             <Link key={pet.id} href={`/pets/${pet.id}`}>
-              <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+              <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full overflow-hidden">
+                {pet.photo_url && (
+                  <div className="w-full h-48 overflow-hidden">
+                    <img
+                      src={pet.photo_url}
+                      alt={pet.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                )}
                 <CardHeader>
-                  <CardTitle>{pet.name}</CardTitle>
+                  <CardTitle className="flex items-center justify-between">
+                    {pet.name}
+                    {pet.medications?.[0]?.count > 0 && (
+                      <Badge variant="secondary">
+                        {pet.medications[0].count} med{pet.medications[0].count !== 1 ? 's' : ''}
+                      </Badge>
+                    )}
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground">
-                    {pet.species} {pet.breed && `• ${pet.breed}`}
-                  </p>
-                  <p className="text-sm mt-2">
-                    {pet.medications?.[0]?.count || 0} active medication(s)
-                  </p>
+                  <div className="space-y-2">
+                    <p className="text-sm text-muted-foreground">
+                      {pet.species}
+                      {pet.breed && ` • ${pet.breed}`}
+                    </p>
+                    <div className="flex gap-2 text-sm text-muted-foreground">
+                      {pet.age !== null && <span>{pet.age} yrs</span>}
+                      {pet.weight !== null && (
+                        <>
+                          {pet.age !== null && <span>•</span>}
+                          <span>{pet.weight} lbs</span>
+                        </>
+                      )}
+                    </div>
+                    {pet.notes && (
+                      <p className="text-sm text-muted-foreground line-clamp-2 mt-2">
+                        {pet.notes}
+                      </p>
+                    )}
+                  </div>
                 </CardContent>
               </Card>
             </Link>
