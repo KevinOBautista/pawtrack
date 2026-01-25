@@ -15,19 +15,19 @@
 
 ### 1.1 Pet Management
 
-- [ ] Create pet addition form (`app/(dashboard)/pets/new/page.tsx`)
+- [x] Create pet addition form (`app/(dashboard)/pets/new/page.tsx`)
   - Form fields: name, species, breed, age, weight, notes
   - Image upload to Supabase Storage
   - Form validation with react-hook-form or native
   - Server action to insert pet into database
-- [ ] Pet detail page (`app/(dashboard)/pets/[id]/page.tsx`)
+- [x] Pet detail page (`app/(dashboard)/pets/[id]/page.tsx`)
 
   - Display pet information
   - Edit pet button
   - List all medications for this pet
   - Delete pet functionality
 
-- [ ] Pet list/grid view improvements
+- [x] Pet list/grid view improvements
   - Add search/filter functionality
   - Show pet photos in cards
   - Quick stats (upcoming doses, active meds)
