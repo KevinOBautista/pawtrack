@@ -32,9 +32,12 @@ export default async function DashboardLayout({
               </Link>
             </div>
             <div className="flex items-center gap-4">
-              <span className="text-sm text-muted-foreground">
+              <Link
+                href="/profile"
+                className="text-sm text-muted-foreground hover:text-foreground"
+              >
                 {data.claims.email}
-              </span>
+              </Link>
               <LogoutButton />
             </div>
           </div>

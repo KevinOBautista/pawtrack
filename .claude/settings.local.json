@@ -6,7 +6,8 @@
       "Bash(head:*)",
       "Bash(grep:*)",
       "Bash(wc:*)",
-      "Bash(npx shadcn@latest add:*)"
+      "Bash(npx shadcn@latest add:*)",
+      "Bash(npm run build:*)"
     ]
   }
 }

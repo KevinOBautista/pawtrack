@@ -46,7 +46,7 @@ components/forms/pet-form.tsx
 
 ### 1.2 Medication Management
 
-- [ ] Add medication form (`app/(dashboard)/pets/[id]/medications/new/page.tsx`)
+- [x] Add medication form (`app/(dashboard)/pets/[id]/medications/new/page.tsx`)
 
   - Medication name, dosage, instructions
   - Frequency selector (daily, twice daily, custom)
@@ -54,14 +54,14 @@ components/forms/pet-form.tsx
   - Start/end date pickers
   - Server action to create medication
 
-- [ ] Medication detail/edit page
+- [x] Medication detail/edit page
 
   - View medication details
   - Edit functionality
   - Pause/resume medication
   - Delete medication with confirmation
 
-- [ ] Dose schedule generator
+- [x] Dose schedule generator
   - Function to generate dose_logs based on medication schedule
   - Run on medication creation
   - Handle recurring schedules (daily, weekly, etc.)
@@ -81,14 +81,14 @@ components/forms/medication-form.tsx
 
 ### 1.3 Profile & Role Setup
 
-- [ ] Create profile setup flow (after signup)
+- [x] Create profile setup flow (after signup)
 
   - Prompt user to select role (owner/sitter)
   - Collect phone number for SMS
   - Full name
   - Auto-create profile record on signup
 
-- [ ] Profile settings page
+- [x] Profile settings page
   - Edit profile information
   - Change phone number
   - Notification preferences (future)
@@ -109,14 +109,14 @@ components/forms/profile-form.tsx
 
 ### 2.1 Sitter Assignment System
 
-- [ ] Sitter invitation flow
+- [x] Sitter invitation flow
 
   - Owner can add sitter by email
   - Set date range for sitting period
   - Sitter receives email invitation
   - Sitter accepts/declines
 
-- [ ] Sitter management page for owners
+- [x] Sitter management page for owners
   - View all sitters
   - Active/inactive assignments
   - Revoke access
@@ -134,7 +134,7 @@ components/forms/sitter-invite-form.tsx
 
 ### 2.2 Sitter Dashboard
 
-- [ ] Today's dose list view (`app/(dashboard)/sitters/page.tsx`)
+- [x] Today's dose list view (`app/(dashboard)/sitters/page.tsx`)
 
   - Show all pending doses for today
   - Group by pet
@@ -143,7 +143,7 @@ components/forms/sitter-invite-form.tsx
   - Photo upload option
   - Notes field
 
-- [ ] Dose confirmation flow
+- [x] Dose confirmation flow
 
   - One-tap "given" button
   - Optional: Add timestamp, photo, notes

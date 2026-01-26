@@ -1,4 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
+import { redirect } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
@@ -6,7 +7,21 @@ import { Badge } from "@/components/ui/badge";
 
 export default async function DashboardPage() {
   const supabase = await createClient();
-  
+
+  // Check if user has a profile, redirect to setup if not
+  const { data: { user } } = await supabase.auth.getUser();
+  if (user) {
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('id')
+      .eq('id', user.id)
+      .single();
+
+    if (!profile) {
+      redirect('/profile/setup');
+    }
+  }
+
   const { data: pets } = await supabase
     .from('pets')
     .select('*, medications(count)')

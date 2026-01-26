@@ -9,7 +9,7 @@ export interface Profile {
 	created_at: string;
 	updated_at: string;
 }
-
+	
 export interface Pet {
 	id: string;
 	owner_id: string;
@@ -47,6 +47,21 @@ export interface DoseLog {
 	photo_url: string | null;
 	notes: string | null;
 	status: "pending" | "administered" | "missed";
+	created_at: string;
+	updated_at: string;
+}
+
+export type AssignmentStatus = "pending" | "accepted" | "declined" | "expired";
+
+export interface SitterAssignment {
+	id: string;
+	pet_id: string;
+	owner_id: string;
+	sitter_id: string | null;
+	sitter_email: string;
+	start_date: string;
+	end_date: string;
+	status: AssignmentStatus;
 	created_at: string;
 	updated_at: string;
 }
