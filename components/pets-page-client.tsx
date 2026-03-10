@@ -162,7 +162,7 @@ export function PetsPageClient({
     startTransition(async () => {
       const supabase = createClient();
       const { data: { user } } = await supabase.auth.getUser();
-      if (!user) return toast.error('Not authenticated');
+      if (!user) { toast.error('Not authenticated'); return; }
 
       const payload = {
         name: form.name.trim(),
@@ -176,12 +176,12 @@ export function PetsPageClient({
 
       if (editId) {
         const { error } = await supabase.from('pets').update(payload).eq('id', editId).eq('owner_id', user.id);
-        if (error) return toast.error(error.message);
+        if (error) { toast.error(error.message); return; }
         if (form.petEmoji) setPetEmojis((prev) => ({ ...prev, [editId]: form.petEmoji }));
         toast.success(`${form.name}'s profile updated! 🐾`);
       } else {
         const { data: pet, error } = await supabase.from('pets').insert({ ...payload, owner_id: user.id }).select().single();
-        if (error) return toast.error(error.message);
+        if (error) { toast.error(error.message); return; }
         if (form.petEmoji && pet) setPetEmojis((prev) => ({ ...prev, [pet.id]: form.petEmoji }));
         toast.success(`${form.name} added! 🐾`);
       }
@@ -197,7 +197,7 @@ export function PetsPageClient({
       const { data: { user } } = await supabase.auth.getUser();
       if (!user) return;
       const { error } = await supabase.from('pets').delete().eq('id', petId).eq('owner_id', user.id);
-      if (error) return toast.error(error.message);
+      if (error) { toast.error(error.message); return; }
       toast.success('Pet removed.');
       setDeleteConfirm(null);
       router.refresh();
